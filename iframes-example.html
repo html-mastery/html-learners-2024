@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم iframes في HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #0056b3;
+            margin-top: 30px;
+            border-right: 4px solid #007bff;
+            padding-right: 15px;
+        }
+
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 نسبة العرض */
+            height: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .simple-iframe {
+            width: 100%;
+            height: 400px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .code-example {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        ul, ol {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ تعلم iframes في HTML</h1>
+
+        <!-- القسم الأول: مقدمة -->
+        <div class="section">
+            <h2>📌 مقدمة عن iframes</h2>
+            <p><strong>iframe</strong> = Inline Frame (إطار مضمن)</p>
+            <p>يسمح لك بتضمين صفحة ويب أخرى داخل صفحتك الحالية.</p>
+
+            <div class="note">
+                <strong>📌 ملاحظة:</strong> HTML Frames القديمة (frameset) لا تُستخدم الآن!
+                الـ iframes هي الطريقة الحديثة والصحيحة.
+            </div>
+        </div>
+
+        <!-- القسم الثاني: iframe بسيط -->
+        <div class="section">
+            <h2>1️⃣ iframe بسيط - صفحة ويب محلية</h2>
+            <p>تضمين صفحة HTML أخرى:</p>
+
+            <div class="code-example">
+                <code>&lt;iframe src="about.html" width="100%" height="500"&gt;&lt;/iframe&gt;</code>
+            </div>
+
+            <p><strong>مثال:</strong></p>
+            <iframe
+                src="https://www.w3schools.com/html/html_iframe.asp"
+                width="100%"
+                height="400"
+                title="مثال iframe">
+            </iframe>
+        </div>
+
+        <!-- القسم الثالث: سمات iframe -->
+        <div class="section">
+            <h2>2️⃣ سمات iframe المهمة</h2>
+
+            <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+                <tr style="background-color: #007bff; color: white;">
+                    <th>السمة</th>
+                    <th>الوصف</th>
+                    <th>مثال</th>
+                </tr>
+                <tr>
+                    <td><strong>src</strong></td>
+                    <td>مصدر الملف أو الصفحة</td>
+                    <td>src="page.html"</td>
+                </tr>
+                <tr>
+                    <td><strong>width</strong></td>
+                    <td>عرض الـ iframe</td>
+                    <td>width="600"</td>
+                </tr>
+                <tr>
+                    <td><strong>height</strong></td>
+                    <td>ارتفاع الـ iframe</td>
+                    <td>height="400"</td>
+                </tr>
+                <tr>
+                    <td><strong>title</strong></td>
+                    <td>وصف الـ iframe (للوصولية)</td>
+                    <td>title="خريطة جوجل"</td>
+                </tr>
+                <tr>
+                    <td><strong>name</strong></td>
+                    <td>اسم الـ iframe</td>
+                    <td>name="myframe"</td>
+                </tr>
+                <tr>
+                    <td><strong>allowfullscreen</strong></td>
+                    <td>السماح بملء الشاشة</td>
+                    <td>allowfullscreen</td>
+                </tr>
+                <tr>
+                    <td><strong>loading</strong></td>
+                    <td>تحميل كسول (lazy)</td>
+                    <td>loading="lazy"</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- القسم الرابع: فيديو يوتيوب -->
+        <div class="section">
+            <h2>3️⃣ فيديو يوتيوب</h2>
+            <p>تضمين فيديو يوتيوب:</p>
+
+            <div class="code-example">
+                <code>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen&gt;&lt;/iframe&gt;</code>
+            </div>
+
+            <p><strong>مثال:</strong></p>
+            <div class="iframe-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/vNBqTYeVBCE"
+                    title="فيديو HTML"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- القسم الخامس: خريطة جوجل -->
+        <div class="section">
+            <h2>4️⃣ خريطة جوجل</h2>
+            <p>تضمين خريطة جوجل:</p>
+
+            <div class="code-example">
+                <code>&lt;iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="450" allowfullscreen="" loading="lazy"&gt;&lt;/iframe&gt;</code>
+            </div>
+
+            <p><strong>مثال:</strong></p>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3553.5384350929537!2d51.56726072346893!3d25.276987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c534fffffffb%3A0x37b9f44df47e6!2z2K_Yp9iz2YrZiCDYp9i52LTZiQ!5e0!3m2!1sar!2sae!4v1234567890"
+                width="100%"
+                height="400"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                title="خريطة جوجل">
+            </iframe>
+        </div>
+
+        <!-- القسم السادس: أفضل الممارسات -->
+        <div class="section">
+            <h2>5️⃣ أفضل الممارسات</h2>
+
+            <div class="success">
+                <h3>✅ يجب عليك:</h3>
+                <ul>
+                    <li>استخدم <code>title</code> دائماً (للوصولية)</li>
+                    <li>حدد <code>width</code> و <code>height</code> أو استخدم CSS</li>
+                    <li>استخدم <code>loading="lazy"</code> لتحسين السرعة</li>
+                    <li>أزل الحدود: <code>style="border: none;"</code></li>
+                    <li>استخدم <code>allowfullscreen</code> للفيديوهات</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <h3>❌ تجنب:</h3>
+                <ul>
+                    <li>عدم استخدام <code>title</code> (سيء للوصولية)</li>
+                    <li>تحميل صفحات بطيئة بدون <code>loading="lazy"</code></li>
+                    <li>iframes متداخلة بكثرة (قد تبطئ الصفحة)</li>
+                    <li>عدم اختبار الموقع على أجهزة مختلفة</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- القسم السابع: مثال كامل -->
+        <div class="section">
+            <h2>6️⃣ مثال كامل - صفحة بعدة iframes</h2>
+
+            <div class="code-example">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ar"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;موقع بـ iframes&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;مرحباً بك&lt;/h1&gt;
+
+    &lt;h2&gt;الفيديو:&lt;/h2&gt;
+    &lt;iframe
+        width="560" height="315"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        allowfullscreen&gt;
+    &lt;/iframe&gt;
+
+    &lt;h2&gt;الخريطة:&lt;/h2&gt;
+    &lt;iframe
+        width="100%" height="450"
+        src="https://www.google.com/maps/embed?pb=..."
+        allowfullscreen=""
+        loading="lazy"&gt;
+    &lt;/iframe&gt;
+
+    &lt;h2&gt;صفحة أخرى:&lt;/h2&gt;
+    &lt;iframe
+        src="about.html"
+        width="100%"
+        height="500"
+        title="صفحة معلومات"&gt;
+    &lt;/iframe&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- القسم الثامن: حالات الاستخدام -->
+        <div class="section">
+            <h2>7️⃣ حالات الاستخدام الشائعة</h2>
+
+            <ul>
+                <li>📹 <strong>فيديوهات يوتيوب</strong> - تضمين الفيديوهات</li>
+                <li>🗺️ <strong>خرائط جوجل</strong> - عرض المواقع</li>
+                <li>📄 <strong>مستندات جوجل</strong> - عرض الملفات</li>
+                <li>📊 <strong>جداول بيانات</strong> - عرض البيانات</li>
+                <li>🎵 <strong>مشغلات الموسيقى</strong> - Spotify, SoundCloud</li>
+                <li>📝 <strong>صفحات ويب</strong> - تضمين صفحات محلية</li>
+                <li>💬 <strong>نماذج تسجيل الدخول</strong> - من خدمات خارجية</li>
+            </ul>
+        </div>
+
+        <!-- القسم التاسع: أمان iframe -->
+        <div class="section">
+            <h2>8️⃣ أمان iframe - sandbox</h2>
+
+            <p>استخدم <code>sandbox</code> لتحديد ما يمكن للـ iframe عمله:</p>
+
+            <div class="code-example">
+                <code>&lt;iframe src="untrusted.html" sandbox="allow-scripts allow-same-origin"&gt;&lt;/iframe&gt;</code>
+            </div>
+
+            <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                <tr style="background-color: #007bff; color: white;">
+                    <th>الخيار</th>
+                    <th>الوصف</th>
+                </tr>
+                <tr>
+                    <td><code>allow-same-origin</code></td>
+                    <td>السماح بالوصول للمصدر نفسه</td>
+                </tr>
+                <tr>
+                    <td><code>allow-scripts</code></td>
+                    <td>السماح بتشغيل JavaScript</td>
+                </tr>
+                <tr>
+                    <td><code>allow-forms</code></td>
+                    <td>السماح بإرسال النماذج</td>
+                </tr>
+                <tr>
+                    <td><code>allow-popups</code></td>
+                    <td>السماح بفتح نوافذ جديدة</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- الخاتمة -->
+        <div class="section">
+            <h2>✅ ملخص</h2>
+            <ul>
+                <li>iframe تُستخدم لتضمين صفحات ويب داخل صفحة أخرى</li>
+                <li>استخدم <code>src</code> لتحديد المصدر</li>
+                <li>لا تنسَ <code>title</code> و <code>width</code> و <code>height</code></li>
+                <li>استخدم <code>loading="lazy"</code> للأداء الأفضل</li>
+                <li>استخدم <code>sandbox</code> للأمان الأفضل</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

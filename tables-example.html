@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم الجداول في HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #0056b3;
+            margin-top: 30px;
+            border-right: 4px solid #007bff;
+            padding-right: 15px;
+        }
+
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* تنسيق الجداول */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background-color: white;
+        }
+
+        table th {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
+        /* جدول بدون حدود -->
+        .table-no-border {
+            border: none;
+        }
+
+        .table-no-border th,
+        .table-no-border td {
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* جدول بحدود -->
+        .table-bordered {
+            border: 2px solid #333;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #333;
+        }
+
+        /* جدول خطاب -->
+        .table-striped tbody tr:nth-child(even) {
+            background-color: #e8f4f8;
+        }
+
+        /* جدول مضغوط -->
+        .table-compact th,
+        .table-compact td {
+            padding: 6px;
+            font-size: 12px;
+        }
+
+        /* جدول كبير -->
+        .table-large th,
+        .table-large td {
+            padding: 18px;
+            font-size: 16px;
+        }
+
+        /* خلايا ملونة -->
+        .warning {
+            background-color: #fff3cd;
+            color: #856404;
+            font-weight: bold;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            font-weight: bold;
+        }
+
+        .danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            font-weight: bold;
+        }
+
+        .code-example {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .note {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 تعلم الجداول (Tables) في HTML</h1>
+
+        <!-- القسم الأول: مقدمة -->
+        <div class="section">
+            <h2>📌 مقدمة عن الجداول</h2>
+            <p>الجداول تُستخدم لعرض البيانات بشكل منظم في صفوف وأعمدة.</p>
+
+            <div class="code-example">
+                <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;رأس العمود&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;البيانات&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <ul>
+                <li><code>&lt;table&gt;</code> - الجدول</li>
+                <li><code>&lt;tr&gt;</code> - صف (Table Row)</li>
+                <li><code>&lt;th&gt;</code> - رأس العمود (Table Header)</li>
+                <li><code>&lt;td&gt;</code> - خلية البيانات (Table Data)</li>
+            </ul>
+        </div>
+
+        <!-- القسم الثاني: جدول بسيط -->
+        <div class="section">
+            <h2>1️⃣ جدول بسيط</h2>
+            <p><strong>مثال:</strong> جدول يحتوي على قائمة الطلاب</p>
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>الاسم</th>
+                    <th>العمر</th>
+                    <th>البلد</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>محمد أحمد</td>
+                    <td>22</td>
+                    <td>السعودية</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>فاطمة علي</td>
+                    <td>21</td>
+                    <td>مصر</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>خالد سالم</td>
+                    <td>23</td>
+                    <td>الإمارات</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- القسم الثالث: جدول بهيكل كامل -->
+        <div class="section">
+            <h2>2️⃣ جدول بهيكل كامل (thead, tbody, tfoot)</h2>
+
+            <div class="code-example">
+                <pre><code>&lt;table&gt;
+    &lt;thead&gt;...&lt;/thead&gt;
+    &lt;tbody&gt;...&lt;/tbody&gt;
+    &lt;tfoot&gt;...&lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>المنتج</th>
+                        <th>السعر</th>
+                        <th>الكمية</th>
+                        <th>الإجمالي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>كتاب HTML</td>
+                        <td>50 ريال</td>
+                        <td>2</td>
+                        <td>100 ريال</td>
+                    </tr>
+                    <tr>
+                        <td>كتاب CSS</td>
+                        <td>60 ريال</td>
+                        <td>1</td>
+                        <td>60 ريال</td>
+                    </tr>
+                    <tr>
+                        <td>كتاب JavaScript</td>
+                        <td>70 ريال</td>
+                        <td>3</td>
+                        <td>210 ريال</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" style="text-align: left; font-weight: bold;">الإجمالي الكلي:</td>
+                        <td style="font-weight: bold; background-color: #d4edda;">370 ريال</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <!-- القسم الرابع: دمج الخلايا -->
+        <div class="section">
+            <h2>3️⃣ دمج الخلايا</h2>
+
+            <h3>دمج الأعمدة (colspan)</h3>
+            <div class="code-example">
+                <code>&lt;td colspan="2"&gt;خلية تمتد على عمودين&lt;/td&gt;</code>
+            </div>
+
+            <table>
+                <tr>
+                    <th colspan="2">معلومات الطالب</th>
+                    <th>الدرجات</th>
+                </tr>
+                <tr>
+                    <th>الاسم</th>
+                    <th>العمر</th>
+                    <th>النتيجة</th>
+                </tr>
+                <tr>
+                    <td>محمد</td>
+                    <td>22</td>
+                    <td>95</td>
+                </tr>
+                <tr>
+                    <td>علي</td>
+                    <td>23</td>
+                    <td>87</td>
+                </tr>
+            </table>
+
+            <h3 style="margin-top: 20px;">دمج الصفوف (rowspan)</h3>
+            <div class="code-example">
+                <code>&lt;td rowspan="3"&gt;خلية تمتد على ثلاث صفوف&lt;/td&gt;</code>
+            </div>
+
+            <table>
+                <tr>
+                    <th>القسم</th>
+                    <th>الموضوع</th>
+                    <th>الساعات</th>
+                </tr>
+                <tr>
+                    <td rowspan="3">برمجة</td>
+                    <td>HTML</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">ديزاين</td>
+                    <td>Figma</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Photoshop</td>
+                    <td>12</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- القسم الخامس: جداول مختلفة الأنماط -->
+        <div class="section">
+            <h2>4️⃣ أنماط جداول مختلفة</h2>
+
+            <h3>جدول مع خطوط تبادلية</h3>
+            <table class="table-striped">
+                <tr>
+                    <th>الشهر</th>
+                    <th>المبيعات</th>
+                    <th>الأرباح</th>
+                </tr>
+                <tr>
+                    <td>يناير</td>
+                    <td>5000 ريال</td>
+                    <td>1500 ريال</td>
+                </tr>
+                <tr>
+                    <td>فبراير</td>
+                    <td>6000 ريال</td>
+                    <td>1800 ريال</td>
+                </tr>
+                <tr>
+                    <td>مارس</td>
+                    <td>7000 ريال</td>
+                    <td>2100 ريال</td>
+                </tr>
+            </table>
+
+            <h3 style="margin-top: 20px;">جدول مع حدود</h3>
+            <table class="table-bordered">
+                <tr>
+                    <th>الحالة</th>
+                    <th>الوصف</th>
+                </tr>
+                <tr>
+                    <td class="success">✅ نجاح</td>
+                    <td>العملية اكتملت بنجاح</td>
+                </tr>
+                <tr>
+                    <td class="warning">⚠️ تحذير</td>
+                    <td>توجد مشاكل طفيفة</td>
+                </tr>
+                <tr>
+                    <td class="danger">❌ خطأ</td>
+                    <td>حدث خطأ في العملية</td>
+                </tr>
+            </table>
+
+            <h3 style="margin-top: 20px;">جدول مضغوط</h3>
+            <table class="table-compact">
+                <tr>
+                    <th>الرقم</th>
+                    <th>المنتج</th>
+                    <th>السعر</th>
+                    <th>المتوفر</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>قلم</td>
+                    <td>5 ريال</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>دفتر</td>
+                    <td>10 ريال</td>
+                    <td>50</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- القسم السادس: جدول معقد -->
+        <div class="section">
+            <h2>5️⃣ جدول معقد - جدول الساعات الدراسية</h2>
+
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <th>الوقت</th>
+                        <th>السبت</th>
+                        <th>الأحد</th>
+                        <th>الاثنين</th>
+                        <th>الثلاثاء</th>
+                        <th>الأربعاء</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: bold;">9:00 - 10:30</td>
+                        <td>HTML</td>
+                        <td>CSS</td>
+                        <td>JavaScript</td>
+                        <td>HTML</td>
+                        <td rowspan="2">راحة</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">10:30 - 12:00</td>
+                        <td>CSS</td>
+                        <td>JavaScript</td>
+                        <td>HTML</td>
+                        <td>CSS</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="text-align: center; background-color: #fff3cd;">استراحة الغداء (12:00 - 1:00)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">1:00 - 2:30</td>
+                        <td>JavaScript</td>
+                        <td>HTML</td>
+                        <td>CSS</td>
+                        <td>JavaScript</td>
+                        <td>HTML</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- القسم السابع: جدول إحصائي -->
+        <div class="section">
+            <h2>6️⃣ جدول إحصائي - نتائج الطلاب</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>اسم الطالب</th>
+                        <th>HTML</th>
+                        <th>CSS</th>
+                        <th>JavaScript</th>
+                        <th>المعدل</th>
+                        <th>التقدير</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>محمد أحمد</td>
+                        <td>95</td>
+                        <td>90</td>
+                        <td>92</td>
+                        <td style="font-weight: bold; background-color: #d4edda;">92.33</td>
+                        <td class="success">ممتاز</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>فاطمة علي</td>
+                        <td>88</td>
+                        <td>85</td>
+                        <td>87</td>
+                        <td style="font-weight: bold; background-color: #d4edda;">86.67</td>
+                        <td class="success">جيد جداً</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>خالد سالم</td>
+                        <td>75</td>
+                        <td>78</td>
+                        <td>80</td>
+                        <td style="font-weight: bold; background-color: #fff3cd;">77.67</td>
+                        <td class="warning">جيد</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>سارة محمود</td>
+                        <td>92</td>
+                        <td>94</td>
+                        <td>96</td>
+                        <td style="font-weight: bold; background-color: #d4edda;">94</td>
+                        <td class="success">ممتاز جداً</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" style="font-weight: bold;">المعدل العام:</td>
+                        <td style="font-weight: bold;">87.5</td>
+                        <td style="font-weight: bold;">86.75</td>
+                        <td style="font-weight: bold;">88.75</td>
+                        <td style="font-weight: bold; background-color: #d4edda;">87.67</td>
+                        <td>جيد جداً</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <!-- القسم الثامن: أفضل الممارسات -->
+        <div class="section">
+            <h2>7️⃣ أفضل الممارسات في الجداول</h2>
+
+            <div class="note">
+                <h3>✅ يجب عليك:</h3>
+                <ul>
+                    <li>استخدم <code>&lt;thead&gt;</code> و <code>&lt;tbody&gt;</code> و <code>&lt;tfoot&gt;</code></li>
+                    <li>استخدم <code>&lt;th&gt;</code> لرؤوس الأعمدة</li>
+                    <li>أضف <code>caption</code> لوصف الجدول</li>
+                    <li>استخدم <code>scope</code> سمة للوصولية</li>
+                    <li>تأكد من أن الجدول له عنوان واضح</li>
+                    <li>استخدم CSS لتنسيق الجدول</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 20px;">مثال: جدول مع caption و scope</h3>
+            <div class="code-example">
+                <pre><code>&lt;table&gt;
+    &lt;caption&gt;جدول الموظفين&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;th scope="col"&gt;الاسم&lt;/th&gt;
+        &lt;th scope="col"&gt;الراتب&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th scope="row"&gt;محمد&lt;/th&gt;
+        &lt;td&gt;5000 ريال&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- الخاتمة -->
+        <div class="section">
+            <h2>✅ ملخص</h2>
+            <ul>
+                <li>الجداول تُستخدم لعرض البيانات المنظمة</li>
+                <li>استخدم <code>&lt;tr&gt;</code> للصفوف و <code>&lt;td&gt;</code> للبيانات</li>
+                <li>استخدم <code>&lt;th&gt;</code> لرؤوس الأعمدة</li>
+                <li>استخدم <code>colspan</code> و <code>rowspan</code> لدمج الخلايا</li>
+                <li>استخدم CSS لتجميل الجداول</li>
+                <li>تأكد من سهولة القراءة والوصولية</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
